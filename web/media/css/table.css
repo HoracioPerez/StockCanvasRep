@@ -1,0 +1,22 @@
+/* 
+    Document   : table
+    Created on : 04-mar-2014, 21:04:16
+    Author     : Horacio Perez
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+table.dataTable tr.row_selected{ 
+    background-color:#1c94c4;
+}
+.detail{
+    border-radius:5px;
+    margin: 2px;
+    background-color:#E2E4FF;
+}
+.detail_unit{
+    display: inline-block;
+    margin: 2px;
+
+}
+
