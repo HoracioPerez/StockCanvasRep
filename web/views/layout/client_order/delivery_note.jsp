@@ -29,7 +29,7 @@
         clientId = client.getId();
     }
     if (deliveryNote != null) {
-        deliveryNoteId=deliveryNote.getId();
+        deliveryNoteId = deliveryNote.getId();
     }
 
 %>
@@ -39,9 +39,7 @@
         //////HIDE//////
         $(".camp").prop('disabled', true);
         $("#delivery_note_alert_<%out.print(id_win);%>").css('display', 'none');       
-        $("#delivery_note_information_<%out.print(id_win);%>").css('display', 'none');
         $("#create_delivery_note_<%out.print(id_win);%>").css('display', 'none'); 
-        $("#set_delivery_note_<%out.print(id_win);%>").css('display', 'none'); 
         
         //////VALIDATION-SHOW//////
         
@@ -49,56 +47,8 @@
             $("#alert_<%out.print(id_win);%>").html("No hay un cliente seleccionado"); 
             $("#delivery_note_alert_<%out.print(id_win);%>").css('display', 'block');
         }else{
-            $("#set_delivery_note_<%out.print(id_win);%>").css('display', 'block'); 
-            if("<%out.print(deliveryNoteId);%>"==""){
-                $("#create_delivery_note_<%out.print(id_win);%>").css('display', 'block');
-            }else{
-                $( "#delivery_note_information_<%out.print(id_win);%>").css('display', 'block'); 
-            }
+            $("#create_delivery_note_<%out.print(id_win);%>").css('display', 'block');         
         }
-        
-        //////BUTTONS//////
-        
-        $("#select_shipping_location_<%out.print(id_win);%>").button();
-        $("#add_shipping_location_<%out.print(id_win);%>").button();
-        $("#select_shipping_method_<%out.print(id_win);%>").button();
-        $("#new_delivery_note_<%out.print(id_win);%>").button();
-        
-        //////SELECT SHIPPING LOCATION//////      
-        
-        $("#select_shipping_location_<%out.print(id_win);%>").click(function() {
-            var subWinId=0;
-            var url2="views/layout/detail_product/client_order_product_detail.jsp"; 
-            $.newModal(
-            '<%out.print(id_win);%>'+subWinId++, 
-            "Detalle", 
-            url2+"?id_father_win="+'<%out.print(id_win);%>'+"&id_order="+"<%out.print(id_order);%>"+"&id_win="+'<%out.print(id_win);%>'+subWinId);    
-        });
-        
-        //////NEW SHIPPING LOCATION//////      
-        
-        $("#add_shipping_location_<%out.print(id_win);%>").click(function() {
-            var subWinId=0;
-            var url2="views/layout/delivery_note/new_shipping_location.jsp";  
-            $.newModal(
-            '<%out.print(id_win);%>'+subWinId++, 
-            "Datos de envio", 
-            url2+"?id_father_win="+'<%out.print(id_win);%>'+"&id_order="+"<%out.print(id_order);%>"+"&id_win="+'<%out.print(id_win);%>'+subWinId);  
-        });
-        
-        
-        //////SHIPPING METHOD//////      
-        
-        $("#select_shipping_method_<%out.print(id_win);%>").click(function() {
-            var subWinId=0;
-            var url2="views/layout/detail_product/client_order_product_detail.jsp";  
-            $.newModal(
-            '<%out.print(id_win);%>'+subWinId++, 
-            "Detalle", 
-            url2+"?id_father_win="+'<%out.print(id_win);%>'+"&id_order="+"<%out.print(id_order);%>"+"&id_win="+'<%out.print(id_win);%>'+subWinId);  
-        });
-        
-        
         //////NEW//////      
         
         $("#new_delivery_note_<%out.print(id_win);%>").click(function() {
@@ -111,7 +61,9 @@
             } );  
         });
         
-       
+        //////BUTTONS//////
+        
+        $("#new_delivery_note_<%out.print(id_win);%>").button();         
        
     });   
 </script>  

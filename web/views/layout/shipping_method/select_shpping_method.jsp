@@ -19,6 +19,20 @@
     String shipping_method_summary = shippingMethod.getSummary();
 
 %>
+<script>
+       
+        //////SHIPPING METHOD//////      
+        
+        $("#select_shipping_method_<%out.print(id_win);%>").click(function() {
+            var subWinId=0;
+            var url2="views/layout/detail_product/client_order_product_detail.jsp";  
+            $.newModal(
+            '<%out.print(id_win);%>'+subWinId++, 
+            "Detalle", 
+            url2+"?id_father_win="+'<%out.print(id_win);%>'+"&id_order="+"<%out.print(id_order);%>"+"&id_win="+'<%out.print(id_win);%>'+subWinId);  
+        });
+    
+</script>
 <input class="camp" type="text" name="shipping_method_id"  placeholder="ID" value="<%out.print(shipping_method_id);%>"/><br/>
 <input class="camp" type="text" name="shipping_method_name"  placeholder="Tipo" value="<%out.print(shipping_method_name);%>"/><br/>
 <input class="camp" type="text" name="shipping_method_summary"  placeholder="Detalle" value="<%out.print(shipping_method_summary);%>"/><br/> 

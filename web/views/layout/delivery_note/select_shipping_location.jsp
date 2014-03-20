@@ -24,7 +24,27 @@
 %>
 <script>
     
-    
+      //////SELECT SHIPPING LOCATION//////      
+        
+        $("#select_shipping_location_<%out.print(id_win);%>").click(function() {
+            var subWinId=0;
+            var url2="views/layout/detail_product/client_order_product_detail.jsp"; 
+            $.newModal(
+            '<%out.print(id_win);%>'+subWinId++, 
+            "Detalle", 
+            url2+"?id_father_win="+'<%out.print(id_win);%>'+"&id_order="+"<%out.print(id_order);%>"+"&id_win="+'<%out.print(id_win);%>'+subWinId);    
+        });
+        
+           //////NEW SHIPPING LOCATION//////      
+        
+        $("#add_shipping_location_<%out.print(id_win);%>").click(function() {
+            var subWinId=0;
+            var url2="views/layout/delivery_note/new_shipping_location.jsp";  
+            $.newModal(
+            '<%out.print(id_win);%>'+subWinId++, 
+            "Datos de envio", 
+            url2+"?id_father_win="+'<%out.print(id_win);%>'+"&id_order="+"<%out.print(id_order);%>"+"&id_win="+'<%out.print(id_win);%>'+subWinId);  
+        });
 </script>
 <form id="form_shipping_location_<%out.print(id_win);%>" action="#" method="POST">
     <input class="camp" type="text" name="shipping_location_id"  placeholder="ID" value="<%out.print(shipping_location_id);%>"/><br/>
